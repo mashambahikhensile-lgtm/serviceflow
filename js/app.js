@@ -136,14 +136,26 @@ function renderLeads() {
             </td>
 
             <td>
-                <button
-                    class="delete-lead"
-                    data-id="${lead.id}"
-                    type="button"
-                >
-                    Delete
-                </button>
-            </td>
+    <div class="lead-actions">
+
+        <button
+            class="edit-lead"
+            data-id="${lead.id}"
+            type="button"
+        >
+            Edit
+        </button>
+
+        <button
+            class="delete-lead"
+            data-id="${lead.id}"
+            type="button"
+        >
+            Delete
+        </button>
+
+    </div>
+</td>
 
         </tr>
     `).join("");
@@ -299,6 +311,86 @@ if (filterStatus) {
     );
 }
 
+function editLead(id) {
+
+    const lead = leads.find(
+        item => item.id === id
+    );
+
+    if (!lead) {
+        return;
+    }
+
+
+    const name = prompt(
+        "Customer name:",
+        lead.name
+    );
+
+    if (name === null) {
+        return;
+    }
+
+
+    const email = prompt(
+        "Email:",
+        lead.email
+    );
+
+    if (email === null) {
+        return;
+    }
+
+
+    const service = prompt(
+        "Service:",
+        lead.service
+    );
+
+    if (service === null) {
+        return;
+    }
+
+
+    const status = prompt(
+        "Status: new, follow-up, converted, or closed",
+        lead.status
+    );
+
+    if (status === null) {
+        return;
+    }
+
+
+    const validStatuses = [
+        "new",
+        "follow-up",
+        "converted",
+        "closed"
+    ];
+
+
+    if (!validStatuses.includes(status)) {
+
+        alert(
+            "Invalid status. Use: new, follow-up, converted, or closed."
+        );
+
+        return;
+    }
+
+
+    lead.name = name.trim();
+    lead.email = email.trim();
+    lead.service = service.trim();
+    lead.status = status;
+
+
+    saveLeads();
+    updateStats();
+    renderLeads();
+    renderActivity();
+}
 
 if (leadTableBody) {
 
@@ -306,16 +398,30 @@ if (leadTableBody) {
         "click",
         event => {
 
-            const button =
+            const editButton =
+                event.target.closest(".edit-lead");
+
+            const deleteButton =
                 event.target.closest(".delete-lead");
 
-            if (!button) {
+
+            if (editButton) {
+
+                const id = Number(editButton.dataset.id);
+
+                editLead(id);
+
                 return;
             }
 
-            const id = Number(button.dataset.id);
 
-            deleteLead(id);
+            if (deleteButton) {
+
+                const id = Number(deleteButton.dataset.id);
+
+                deleteLead(id);
+            }
+
         }
     );
 }
