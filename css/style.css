@@ -896,3 +896,161 @@ a {
         padding: 22px;
     }
 }
+
+/* =========================================
+   RESPONSIVE FOUNDATION
+   ========================================= */
+
+html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img,
+video,
+svg,
+canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+iframe {
+    max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+    max-width: 100%;
+}
+
+a,
+button {
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================
+   MOBILE — 768px AND BELOW
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    body {
+        font-size: 16px;
+    }
+
+    main,
+    section,
+    header,
+    footer,
+    nav {
+        max-width: 100%;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .hero {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero h1 {
+        max-width: 100%;
+        overflow-wrap: break-word;
+        word-break: normal;
+    }
+
+    .hero p {
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+
+    .hero-actions {
+        width: 100%;
+        max-width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .hero-actions a,
+    .hero-actions button {
+        max-width: 100%;
+    }
+
+}
+
+
+/* =========================================
+   SMALL PHONES — 480px AND BELOW
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .hero {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.2rem, 11vw, 3.4rem);
+        line-height: 0.98;
+        letter-spacing: -0.045em;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        line-height: 1.65;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .hero-actions a,
+    .hero-actions button {
+        width: 100%;
+        text-align: center;
+    }
+}
