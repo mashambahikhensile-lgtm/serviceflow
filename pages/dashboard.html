@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="ServiceFlow lead management dashboard."
+    >
+
+    <title>ServiceFlow — Dashboard</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <nav class="container navbar">
+
+            <a href="../index.html" class="brand">
+                <span class="brand-mark">S</span>
+                <span>ServiceFlow</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="../index.html">Website</a>
+                <a href="#leads">Leads</a>
+                <a href="#activity">Activity</a>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <main class="dashboard-page">
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">SERVICEFLOW DASHBOARD</span>
+
+                    <h1>
+                        Manage your leads.
+                    </h1>
+
+                    <p>
+                        Capture enquiries, track opportunities, and keep
+                        follow-ups organized from one workspace.
+                    </p>
+                </div>
+
+
+                <!-- STATS -->
+
+                <div class="stat-grid dashboard-stats">
+
+                    <article class="stat-card">
+                        <small>Total Leads</small>
+                        <strong id="totalLeads">0</strong>
+                        <span>Total enquiries</span>
+                    </article>
+
+                    <article class="stat-card">
+                        <small>New Leads</small>
+                        <strong id="newLeads">0</strong>
+                        <span>Need attention</span>
+                    </article>
+
+                    <article class="stat-card">
+                        <small>Follow-ups</small>
+                        <strong id="followUpLeads">0</strong>
+                        <span>Active opportunities</span>
+                    </article>
+
+                    <article class="stat-card">
+                        <small>Converted</small>
+                        <strong id="convertedLeads">0</strong>
+                        <span>Successful leads</span>
+                    </article>
+
+                </div>
+
+
+                <!-- LEAD MANAGEMENT -->
+
+                <section class="app-panel" id="leads">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <span class="eyebrow">LEAD MANAGEMENT</span>
+                            <h2>Recent enquiries</h2>
+                        </div>
+
+                        <button
+                            class="button button-primary"
+                            id="addLeadButton"
+                            type="button"
+                        >
+                            + Add Lead
+                        </button>
+
+                    </div>
+
+
+                    <div class="lead-controls">
+
+                        <input
+                            type="search"
+                            id="searchLeads"
+                            placeholder="Search leads..."
+                            aria-label="Search leads"
+                        >
+
+                        <select id="filterStatus" aria-label="Filter leads">
+                            <option value="all">All statuses</option>
+                            <option value="new">New</option>
+                            <option value="follow-up">Follow-up</option>
+                            <option value="converted">Converted</option>
+                            <option value="closed">Closed</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="lead-table-wrapper">
+
+                        <table class="lead-table">
+
+                            <thead>
+                                <tr>
+                                    <th>Customer</th>
+                                    <th>Service</th>
+                                    <th>Email</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="leadTableBody"></tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ACTIVITY -->
+
+                <section class="app-panel" id="activity">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <span class="eyebrow">RECENT ACTIVITY</span>
+                            <h2>Latest updates</h2>
+                        </div>
+
+                    </div>
+
+                    <div id="activityList" class="activity-list"></div>
+
+                </section>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ADD LEAD MODAL -->
+
+    <div
+        class="modal"
+        id="leadModal"
+        aria-hidden="true"
+    >
+
+        <div class="modal-card">
+
+            <div class="modal-header">
+
+                <div>
+                    <span class="eyebrow">NEW LEAD</span>
+                    <h2>Add customer enquiry</h2>
+                </div>
+
+                <button
+                    class="modal-close"
+                    id="closeModal"
+                    type="button"
+                    aria-label="Close"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="leadForm">
+
+                <label>
+                    Customer name
+                    <input
+                        type="text"
+                        id="leadName"
+                        required
+                    >
+                </label>
+
+                <label>
+                    Email
+                    <input
+                        type="email"
+                        id="leadEmail"
+                        required
+                    >
+                </label>
+
+                <label>
+                    Service
+                    <input
+                        type="text"
+                        id="leadService"
+                        placeholder="e.g. Plumbing"
+                        required
+                    >
+                </label>
+
+                <label>
+                    Status
+                    <select id="leadStatus">
+                        <option value="new">New</option>
+                        <option value="follow-up">Follow-up</option>
+                        <option value="converted">Converted</option>
+                        <option value="closed">Closed</option>
+                    </select>
+                </label>
+
+                <button
+                    class="button button-primary"
+                    type="submit"
+                >
+                    Add Lead
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="../js/app.js"></script>
+
+</body>
+</html>
