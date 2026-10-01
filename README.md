@@ -2,6 +2,10 @@
 
 A responsive lead-management web application designed for service businesses to capture, organize, search, and manage customer enquiries.
 
+## Live Demo
+
+[View ServiceFlow Live Demo](https://mashambahikhensile-lgtm.github.io/serviceflow/)
+
 ## Overview
 
 ServiceFlow is a front-end web application built around a simple business problem:
