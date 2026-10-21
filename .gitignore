@@ -19,3 +19,8 @@ node_modules/
 # Build output
 dist/
 build/
+
+# Playwright test output
+test-results/
+playwright-report/
+playwright/.cache/
